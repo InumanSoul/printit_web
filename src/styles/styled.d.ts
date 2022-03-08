@@ -8,9 +8,8 @@ declare module 'styled-components' {
         primary: string
         secondary: string
         success: string
-
+        danger: string
         sidemenu: string
-
         background: string
         darkBackground: string
         text: string

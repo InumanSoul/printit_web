@@ -4,6 +4,7 @@ import { Dropdown, DropdownHeader, DropupMenu } from '../../styles/global';
 import { Container, SwitchEmpresa, MenuLink } from './styles';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBuilding, faAddressBook, faBox, faFileChartLine, faInboxIn, faInboxOut } from "@fortawesome/pro-regular-svg-icons";
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 function Sidemenu() {
     const user = JSON.parse(localStorage.getItem('user') || "{}");
@@ -19,23 +20,23 @@ function Sidemenu() {
         </Link>
         <MenuLink>
           <Link to="/invoices">
-            <FontAwesomeIcon icon={faInboxIn} />
+            <FontAwesomeIcon icon={faInboxIn as IconProp} />
             Ingresos
           </Link>
           <Link to="/expenses">
-            <FontAwesomeIcon icon={faInboxOut} />
+            <FontAwesomeIcon icon={faInboxOut as IconProp} />
             Gastos
           </Link>
           <Link to="/items">
-            <FontAwesomeIcon icon={faBox} />
+            <FontAwesomeIcon icon={faBox as IconProp} />
             Productos
           </Link>
           <Link to="/contacts">
-            <FontAwesomeIcon icon={faAddressBook} />
+            <FontAwesomeIcon icon={faAddressBook as IconProp} />
             Contactos
           </Link>
           <Link to="/reports">
-            <FontAwesomeIcon icon={faFileChartLine} />
+            <FontAwesomeIcon icon={faFileChartLine as IconProp} />
             Reportes
           </Link>
           <Link to="/outbuilding">Dependencias</Link>
@@ -50,7 +51,7 @@ function Sidemenu() {
                 <p>{user.empresa.nombre}</p>
               </div>
               <div>
-                <FontAwesomeIcon icon={faBuilding} />
+                <FontAwesomeIcon icon={faBuilding as IconProp} />
               </div>
             </DropdownHeader>
             <DropupMenu>

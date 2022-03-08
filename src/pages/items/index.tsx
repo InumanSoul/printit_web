@@ -7,6 +7,7 @@ import NumberFormat from 'react-number-format'
 import { ProductPhoto, ProductInfo } from './styles'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faImagePolaroid } from '@fortawesome/pro-regular-svg-icons';
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 interface JsonObject {
   data: Array<any>;
@@ -50,7 +51,7 @@ function Items() {
             <h2>Productos</h2>
           </div>
           <div className="col-md-6">
-            <Link to="/items" className="link-button--primary">Nuevo producto</Link>
+            <Link to="/items" className="link-button--primary">Agregar producto</Link>
           </div>
         </div>
 
@@ -68,7 +69,7 @@ function Items() {
                   >
                     <div className="box bg-light bordered rounded">
                       <ProductPhoto>
-                        <FontAwesomeIcon icon={faImagePolaroid} size={'2x'}/>
+                        <FontAwesomeIcon icon={faImagePolaroid as IconProp} size={'2x'}/>
                       </ProductPhoto>
                       <ProductInfo>
                         <div>

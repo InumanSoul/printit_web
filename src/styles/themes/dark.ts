@@ -5,9 +5,8 @@ export default {
     primary: '#F23B55',
     secondary: '#484793',
     success: '#399E82',
-
+    danger: '#f42305',
     sidemenu: '#1C1E2A',
-
     background: '#151722',
     darkBackground: '#151722',
     text: '#F5F5F5',

@@ -8,9 +8,9 @@ function Header() {
 		<Container>
 			<img className="brand-md" src="https://printit.com.py/img/vendor/logo.svg" alt="Printit" />
 			<div>
-				<Link to="/account" className="text-decoration-none text-reset mr3">Módulos</Link>
-				<Link to="/account" className="text-decoration-none text-reset mr3">Precios</Link>
-				<Link to="/account" className="text-decoration-none text-reset mr3">Ayuda</Link>
+				<Link to="/features" className="text-decoration-none text-reset mr3">Módulos</Link>
+				<Link to="/pricing" className="text-decoration-none text-reset mr3">Precios</Link>
+				<Link to="/help" className="text-decoration-none text-reset mr3">Ayuda</Link>
 			</div>
 			<Menu />
 		</Container>

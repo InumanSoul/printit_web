@@ -1077,6 +1077,22 @@ export const Content = styled.div`
 	}
 `;
 
+
+export const OutlineButton = styled.button`
+  padding: 0.375rem 0.75rem;
+  background: transparent;
+  color: ${(props) => props.theme.colors.text};
+  border: 1px solid ${(props) => props.theme.colors.text};
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+
+  :disabled {
+    opacity: 0.5;
+  }
+`;
+
 export const Button = styled.button`
   padding: 0.375rem 0.75rem;
   background: ${(props) => props.theme.colors.primary};
@@ -1090,6 +1106,10 @@ export const Button = styled.button`
   :disabled {
     opacity: 0.5;
   }
+`;
+
+export const DangerButton = styled(Button)`
+  background: ${(props) => props.theme.colors.danger};
 `;
 
 export const SuccessButton = styled(Button)`
@@ -1195,7 +1215,7 @@ export const DropdownMenuRight = styled(DropdownMenu)`
 export const DropupMenu = styled(DropdownMenu)`
 	bottom: 100%;
 	margin-top: 0;
-  margin-bottom: .375rem;
+  	margin-bottom: .375rem;
 
 	::after{
 		content: '';

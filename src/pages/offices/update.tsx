@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleNotch, faChevronLeft } from "@fortawesome/pro-regular-svg-icons";
 import { Container, Button, FormGroup, Label, Input } from "../../styles/global";
 import Layout from "../../components/Layout";
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
 function SucursalesCreate() {
   const [nombre, setNombre] = useState("");
@@ -66,7 +67,7 @@ function SucursalesCreate() {
     <Layout>
       <Container>
         <Link to="/sucursales" className="text-decoration-none">
-          <FontAwesomeIcon icon={faChevronLeft} /> Volver
+          <FontAwesomeIcon icon={faChevronLeft as IconDefinition} /> Volver
         </Link>
 
         <h2>Nueva sucursal</h2>
@@ -109,7 +110,7 @@ function SucursalesCreate() {
               className="btn-block"
             >
               {isLoading ? (
-                <FontAwesomeIcon icon={faCircleNotch} spin={true} />
+                <FontAwesomeIcon icon={faCircleNotch as IconDefinition} spin={true} />
               ) : (
                 "Guardar sucursal"
               )}

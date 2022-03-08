@@ -1,12 +1,15 @@
 import React from "react";
 import { Route, BrowserRouter as Router } from "react-router-dom";
-
+// Public pages
 import Home from "../pages/home";
-
+import Features from "../pages/public/features";
+import Help from "../pages/public/help";
+import Pricing from "../pages/public/pricing";
+// Auth pages
 import Login from "../pages/auth/login";
 import Register from "../pages/auth/register";
 import Account from "../pages/account";
-
+// System pages
 import Items from "../pages/items";
 import Reports from "../pages/reports";
 import Invoices from "../pages/invoices";
@@ -15,15 +18,20 @@ import Business from "../pages/business";
 import Outbuilding from "../pages/outbuilding";
 import Settings from "../pages/settings";
 import Contacts from '../pages/contacts';
-
+// Offices pages
 import Offices from "../pages/offices";
 import OfficeDetail from "../pages/offices/details";
 import OfficeCreate from "../pages/offices/create";
+// Customers pages
+import Customers from '../pages/contacts/customers';
 
 function Routes(){
-  return (
+  return(
     <Router>
       <Route exact path="/" component={Home} />
+      <Route exact path="/features" component={Features} />
+      <Route exact path="/help" component={Help} />
+      <Route exact path="/pricing" component={Pricing} />
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
       <Route path="/account" component={Account} />
@@ -38,6 +46,7 @@ function Routes(){
       <Route exact path="/offices" component={Offices} />
       <Route path="/offices/show/:id" component={OfficeDetail} />
       <Route path="/offices/new" component={OfficeCreate} />
+      <Route exact path="/customers" component={Customers} />
     </Router>
   )
 };

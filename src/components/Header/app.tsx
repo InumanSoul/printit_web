@@ -14,6 +14,7 @@ import {
 import Avatar from 'react-avatar';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/pro-regular-svg-icons";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 interface Props {
     toggleTheme(): void;
@@ -49,7 +50,7 @@ const Header: React.FC<Props> = ({ toggleTheme }) => {
   return (
     <Container>
       <SearchBox>
-        <FontAwesomeIcon icon={faSearch} />
+        <FontAwesomeIcon icon={faSearch as IconProp} />
         <InputSearch type="text" placeholder="Buscar" />
       </SearchBox>
       <div className="d-flex align-items-center">
@@ -73,7 +74,7 @@ const Header: React.FC<Props> = ({ toggleTheme }) => {
           </DropdownHeader>
           <DropdownMenuRight>
             <Link to="/account" className="dropdown-item">{user.name}</Link>
-            <a onClick={(e) => {e.preventDefault(); handleLoggout()}} className="dropdown-item">Cerrar sesión</a>
+            <div onClick={(e) => {e.preventDefault(); handleLoggout()}} className="dropdown-item">Cerrar sesión</div>
           </DropdownMenuRight>
         </Dropdown>
       </div>

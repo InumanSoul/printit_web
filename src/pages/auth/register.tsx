@@ -6,6 +6,7 @@ import { faCircleNotch } from "@fortawesome/pro-regular-svg-icons";
 import { Button, FormGroup, Input, Label } from "../../styles/global";
 import { Container, LoginCard } from "./styles";
 import Layout from '../../components/Layout/public'
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
 const Register = () => {
   const [username, setUsername] = useState('');
@@ -96,7 +97,8 @@ const Register = () => {
               className="btn-block"
             >
               {isLoading ? (
-                <FontAwesomeIcon icon={faCircleNotch} spin={true} />
+                <FontAwesomeIcon icon={faCircleNotch as IconDefinition} spin={true} />
+                // 'Registrando...'
               ) : (
                 'Crear cuenta'
               )}
