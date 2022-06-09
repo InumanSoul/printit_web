@@ -10,7 +10,7 @@ function Business() {
       <Layout>
         <Container>
           <h2>{user.empresa.nombre}</h2>
-          <p>Lorem ipsum dolor sit ammet consecteur</p>
+          <p>Mostrar o accesos a sucursales, depositos, clientes, proveedores, ventas, gastos</p>
           <Link to="/offices" className="btn btn-primary">Sucursales</Link>
           <Link to="/offices" className="btn btn-primary">Depositos</Link>
         </Container>
