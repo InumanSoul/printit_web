@@ -6,7 +6,7 @@ import Middleware from '../../components/Middleware/auth';
 import light from "../../styles/themes/light";
 import dark from "../../styles/themes/dark";
 
-import GlobablStyle, { Wrapper, Content } from "../../styles/global";
+import GlobalStyle, { Wrapper, Content } from "../../styles/global";
 import Sidemenu from "../../components/Sidemenu";
 import Header from "../../components/Header/app"
 
@@ -23,7 +23,7 @@ const Layout: React.FC<Props> = ({ children }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <GlobablStyle />
+      <GlobalStyle />
       <Middleware />
       <Wrapper>
         <Sidemenu/>

@@ -63,9 +63,9 @@ function Items() {
               {apidata.data.map((item) => {
                 return (
                   <Link
-                    to={`/items/${item.id}/show`}
+                    to={`/items/${item.id}`}
                     key={item.id}
-                    className="col-xs-6 col-md-4 mt4 text-decoration-none text-reset"
+                    className="col-xs-6 col-md-3 mt4 text-decoration-none text-reset"
                   >
                     <div className="box bg-light bordered rounded">
                       <ProductPhoto>

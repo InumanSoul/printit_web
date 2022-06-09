@@ -70,10 +70,10 @@ const Header: React.FC<Props> = ({ toggleTheme }) => {
 
         <Dropdown>
           <DropdownHeader>
-            <Avatar name={user.name} size="35" round={true} textSizeRatio={2} className="ml2"/>
+            <Avatar name={user.nombre} size="35" round={true} textSizeRatio={2} className="ml2"/>
           </DropdownHeader>
           <DropdownMenuRight>
-            <Link to="/account" className="dropdown-item">{user.name}</Link>
+            <Link to="/account" className="dropdown-item">Mi perfil</Link>
             <div onClick={(e) => {e.preventDefault(); handleLoggout()}} className="dropdown-item">Cerrar sesión</div>
           </DropdownMenuRight>
         </Dropdown>
