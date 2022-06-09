@@ -7,10 +7,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { faChevronLeft, faCircleNotch } from "@fortawesome/pro-regular-svg-icons";
 
-interface JsonObject{
-  data: any;
-}
-
 function CustomerForm(props: any) {
   const [nombre, setNombre] = useState("");
   const [ruc, setRUC] = useState("");
@@ -18,7 +14,6 @@ function CustomerForm(props: any) {
   const [telefono , setTelefono] = useState("");
 
   const [isLoading, setIsLoading] = useState(false);
-  // const [apiData, setApiData] = useState<JsonObject>({ data: [] });
   const [hasMessage, setMessage] = useState("");
   const customerId = props.match.params;
   //Get token from local and configure headers
@@ -51,15 +46,16 @@ function CustomerForm(props: any) {
 
   const UpdateCustomer = () => {
     setIsLoading(true);
-    const formData = new FormData();
-    formData.append("nombre", nombre);
-    formData.append("ruc", ruc);
-    formData.append("direccion", direccion);
-    formData.append("telefono", telefono);
+    const data = {
+      ruc,
+      nombre,
+      direccion,
+      telefono,
+    }
     
     if (nombre !== null && ruc !== null && direccion !== null) {
       axios
-        .put("http://localhost:8000/api/customers/"+customerId.id, formData, {
+        .put("http://localhost:8000/api/customers/"+customerId.id, data, {
           headers: headers,
         })
         .then((res) => {
@@ -68,7 +64,7 @@ function CustomerForm(props: any) {
           setIsLoading(false);
         })
         .catch((error) => {
-          console.log(error);
+          console.error(error);
           setMessage("No se pudo actualizar el dato");
           setIsLoading(false);
         });

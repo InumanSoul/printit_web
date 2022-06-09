@@ -7,10 +7,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { faChevronLeft, faCircleNotch } from "@fortawesome/pro-regular-svg-icons";
 
-interface JsonObject{
-  data: any;
-}
-
 function CustomerForm(props: any) {
   const [nombre, setNombre] = useState("");
   const [ruc, setRUC] = useState("");
@@ -18,9 +14,7 @@ function CustomerForm(props: any) {
   const [telefono , setTelefono] = useState("");
   const [isButtonDisabled, setIsBbuttonDisabled] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
-  const [apiData, setApiData] = useState<JsonObject>({ data: [] });
   const [hasMessage, setMessage] = useState("");
-  const customerId = props.match.params;
   //Get token from local and configure headers
   const token = localStorage.getItem("app_token");
   const user = JSON.parse(localStorage.getItem("user") || "{}");
@@ -31,42 +25,28 @@ function CustomerForm(props: any) {
     "Empresa": user.empresa_id,
   };
 
-  const fetchData = async () => {
-    setIsLoading(true);
-
-    const res = await axios.put("http://localhost:8000/api/customers/"+customerId.id, {
-      headers: headers,
-    })
-    const formatResult = {data: res.data};
-    setApiData(formatResult);
-    setIsLoading(false);
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, [])
-
   const CreateCustomer = () => {
     setIsLoading(true);
-    const formData = new FormData();
-    formData.append("nombre", nombre);
-    formData.append("ruc", ruc);
-    formData.append("direccion", direccion);
-    formData.append("telefono", telefono);
+    const data = {
+      ruc,
+      nombre,
+      direccion,
+      telefono,
+    }
 
     if (nombre !== null && ruc !== null && direccion !== null) {
       axios
-        .post("http://localhost:8000/api/customers", formData, {
+        .post("http://localhost:8000/api/customers", data, {
           headers: headers,
         })
         .then((res) => {
           console.log(res);
-          setMessage("Cliente actualizado con éxito");
+          setMessage("Cliente registrado con éxito");
           setIsLoading(false);
         })
         .catch((error) => {
           console.log(error);
-          setMessage("No se pudo actualizar el dato");
+          setMessage("No se pudo registrar el cliente");
           setIsLoading(false);
         });
     }
@@ -126,7 +106,7 @@ function CustomerForm(props: any) {
                 {isLoading ? (
                   <FontAwesomeIcon icon={faCircleNotch as IconDefinition} spin={true} />
                 ) : (
-                  'Actualizar'
+                  'Registrar Cliente'
                 )}
               </Button>
             </form>
