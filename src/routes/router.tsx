@@ -50,6 +50,7 @@ function Routes(){
       <Route path="/offices/new" component={OfficeCreate} />
       <Route exact path="/customers" component={Customers} />
       <Route exact path="/customers/edit/:id" component={CustomerDetail} />
+      <Route exact path="/customers/new" component={CustomerForm} />
     </Router>
   )
 };

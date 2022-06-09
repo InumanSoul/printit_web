@@ -6,6 +6,7 @@ export default {
     secondary: '#484793',
     success: '#399E82',
     danger: '#f42305',
+    gray500: '#AAAAAA',
     sidemenu: '#1C1E2A',
     background: '#151722',
     darkBackground: '#151722',

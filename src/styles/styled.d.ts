@@ -9,6 +9,7 @@ declare module 'styled-components' {
         secondary: string
         success: string
         danger: string
+        gray500: string
         sidemenu: string
         background: string
         darkBackground: string

@@ -36,6 +36,18 @@ export default createGlobalStyle`
 			font-weight: 800;
 	}
 
+	h4{
+		font-family: 'Muli', sans-serif;
+		font-size: 1.45rem;
+		font-weight: 800;
+	}
+
+	h5{
+		font-family: 'Muli', sans-serif;
+		font-size: 1.25rem;
+		font-weight: 800;
+	}
+
 	a{
 		color: ${(props) => props.theme.colors.primary};
 		text-decoration: none;
@@ -1110,6 +1122,11 @@ export const Button = styled.button`
 
 export const DangerButton = styled(Button)`
   background: ${(props) => props.theme.colors.danger};
+`;
+
+export const SecondaryButton = styled(Button)`
+  background: ${(props) => props.theme.colors.gray500};
+	color: ${(props) => props.theme.colors.text};
 `;
 
 export const SuccessButton = styled(Button)`
