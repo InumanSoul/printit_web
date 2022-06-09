@@ -1262,6 +1262,11 @@ export const DropdownHeader = styled.div`
   color: ${(props) => props.theme.colors.text};
 `;
 
+export const Card = styled.div`
+	background-color: ${(props) => props.theme.colors.cardbg};
+	border-radius: .5em;
+`;
+
 export const Badge = styled.div`
 	padding: .2rem .5rem;
 	border-radius: 1rem;
