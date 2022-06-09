@@ -63,7 +63,7 @@ function Customers() {
       <Link to="/contacts" className="text-decoration-none">
         <FontAwesomeIcon icon={faChevronLeft as IconDefinition} /> Volver
       </Link>
-        <div className="col-md-6">
+        <div className="col-md-6 d-flex">
           <h2>Clientes</h2>  
         </div>
         <div className="col-md-6 align-left">
@@ -78,7 +78,7 @@ function Customers() {
                 return (
                   <ContactCard key={customer.id}>
                     <div>
-                      <h4>{customer.nombre}</h4>
+                      <h5>{customer.nombre}</h5>
                       <p>{customer.ruc}</p>
                       <p>{customer.direccion}</p>
                     </div>

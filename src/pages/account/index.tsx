@@ -1,21 +1,40 @@
 import React, { useState } from "react";
-import { Button,Container, FormGroup, Input, Label, OutlineButton } from "../../styles/global";
+import { Button,Card,Container, FormGroup, Input, Label, OutlineButton } from "../../styles/global";
 import Layout from "../../components/Layout";
 import Avatar from 'react-avatar'
+import { Divider } from "./styles";
+import { Link } from "react-router-dom";
 
 function Account() {
   const user = JSON.parse(localStorage.getItem('user') || "{}");
   const [editMode, setEditMode] = useState(true);
 
+  const UpdateProfile = () => {
+    window.alert('Perfil actualizado');
+    setEditMode(true);
+  }
+
   return (
     <Layout>
       <Container>
         <div className="row">
-          <div className="col-md-5 col-md-offset-3">
-            <h2>Mi Perfil</h2>
+          <div className="col-lg-5 col-lg-offset-3 col-md-8 col-md-offset-2">
+            <div className="d-flex justify-content-between">
+              <h2>Mi Perfil</h2>
+              <div className="actions">
+                {editMode == true && <OutlineButton onClick={(e) => setEditMode(false)}>Editar</OutlineButton>}
+                {editMode == false && (
+                  <>
+                    <OutlineButton onClick={(e) => setEditMode(true)}>Cancelar</OutlineButton>
+                    <Button onClick={(e) => UpdateProfile()}>Guardar Cambios</Button>
+                  </>
+                )}
+              </div>
+            </div>
+            <Card style={{padding: 25, marginTop: 20,}}>
             <div>
               <h5>Datos Basicos</h5>
-              <hr />
+              <Divider style={{marginBottom: 20, marginTop: 10,}} />
               <FormGroup>
                 <div className="row align-items-center">
                   <div className="col-md-3">
@@ -91,14 +110,12 @@ function Account() {
                   </div>
                 </div>
               </FormGroup>
-              
-              {/* <p>Empresa, {user.empresa.nombre}</p> */}
 
             </div>
 
             <div>
-              <h5>Suscripcion</h5>
-              <hr />
+              <h5>Suscripción</h5>
+              <Divider style={{marginBottom: 20, marginTop: 10,}} />
               <FormGroup>
                 <div className="row align-items-center">
                   <div className="col-md-3">
@@ -129,10 +146,26 @@ function Account() {
                   </div>
                 </div>
               </FormGroup>
-
             </div>
-            {editMode == true && <OutlineButton onClick={(e) => setEditMode(false)}>Editar</OutlineButton>}
-            {editMode == false && <Button onClick={(e) => setEditMode(true)}>Guardar Cambios</Button>}
+
+            <div>
+              <h5>Empresa</h5>
+              <Divider style={{marginBottom: 20, marginTop: 10,}} />
+              <FormGroup>
+                <div className="row align-items-center">
+                  <div className="col-md-3">
+                    <Label>Nombre</Label>
+                  </div>
+                  <div className="col-md-9">
+                    <div className="d-flex justify-content-between">
+                      <p>{user.empresa.nombre}</p>
+                      <Link to={'/business'}>Ver datos</Link>
+                    </div>
+                  </div>
+                </div>
+              </FormGroup>
+            </div>
+            </Card>
           </div>
         </div>
       </Container>
