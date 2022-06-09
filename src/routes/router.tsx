@@ -24,6 +24,8 @@ import OfficeDetail from "../pages/offices/details";
 import OfficeCreate from "../pages/offices/create";
 // Customers pages
 import Customers from '../pages/contacts/customers';
+import CustomerForm from '../pages/contacts/customers/CustomerForm';
+import CustomerDetail from '../pages/contacts/customers/CustomerDetail';
 
 function Routes(){
   return(
@@ -47,6 +49,7 @@ function Routes(){
       <Route path="/offices/show/:id" component={OfficeDetail} />
       <Route path="/offices/new" component={OfficeCreate} />
       <Route exact path="/customers" component={Customers} />
+      <Route exact path="/customers/edit/:id" component={CustomerDetail} />
     </Router>
   )
 };
