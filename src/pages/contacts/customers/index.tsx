@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Container } from "../../../styles/global";
+import { Button, Container } from "../../../styles/global";
 import Layout from "../../../components/Layout";
 import { ContactCard } from "./styles";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronLeft } from "@fortawesome/pro-regular-svg-icons";
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
 interface JsonObject {
   data: Array<any>;
@@ -41,6 +45,9 @@ function Customers() {
     return (
       <Layout>
         <Container>
+        <Link to="/contacts" className="text-decoration-none">
+          <FontAwesomeIcon icon={faChevronLeft as IconDefinition} /> Volver
+        </Link>
           <h2>Clientes</h2>
 
           {isLoading ? (
@@ -50,17 +57,20 @@ function Customers() {
               {apidata.data.map((customer) => {
                   return (
                     <ContactCard key={customer.id}>
-                      <h4>{customer.nombre}</h4>
-                      <p>{customer.ruc}</p>
-                      <p>{customer.direccion}</p>
-                      <p>{customer.telefono}</p>
+                      <div>
+                        <h4>{customer.nombre}</h4>
+                        <p>{customer.ruc}</p>
+                        <p>{customer.direccion}</p>
+                      </div>
+                      <div>
+                        <Link style={{marginRight: 15}} to={'customers/edit/'+customer.id}>Editar</Link>
+                        <Button>Eliminar</Button>
+                      </div>
                     </ContactCard>
                   )
                 })}
             </>
           )}
-
-        <p>Cargar más</p>
         </Container>
       </Layout>
     )

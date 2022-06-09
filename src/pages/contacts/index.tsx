@@ -8,7 +8,7 @@ function Contacts() {
     <Layout>
       <Container>
         <h2>Contactos</h2>
-        <p>Lorem ipsum dolor sit ammet consecteur</p>
+        <p>Aqui podes ver un resumen de todos tus contactos, estos son los clientes y proveedores con quien operes.</p>
 
         <Link to="/customers">Clientes</Link>
         <p>Proveedores</p>

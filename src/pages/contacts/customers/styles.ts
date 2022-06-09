@@ -2,10 +2,14 @@ import styled from 'styled-components';
 
 export const ContactCard = styled.div`
   padding: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 95%;
   border-radius: .25rem;
   background-color: ${props => props.theme.colors.cardbg};
   border: 1px solid ${props => props.theme.colors.borderColor};
+  margin-bottom: 10px;
 
   @media (min-width: 768px) {
     width: 50%;
