@@ -1150,19 +1150,26 @@ export const Container = styled.div`
 `;
 
 export const Input = styled.input`
-  border: 1px solid ${props => props.theme.colors.borderColor};
+  border: 1px solid ${props => props.theme.colors.gray600};
   padding: 0.375rem .75rem;
   border-radius: .25rem;
   display: inline-block;
   width: 100%;
   height: 40px;
-  background: ${props => props.theme.colors.background};
+	background: transparent;
   color: ${props => props.theme.colors.text};
   font-size: 1rem;
 
   :active, :focus {
     outline: 0;
     border: 1px solid ${props => props.theme.colors.primary};
+  }
+
+	:disabled {
+    outline: 0;
+		cursor: not-allowed;
+  	border: 1px solid ${props => props.theme.colors.gray300};
+		background: ${props => props.theme.colors.background};
   }
 `;
 

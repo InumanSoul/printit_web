@@ -23,7 +23,7 @@ import Offices from "../pages/offices";
 import OfficeDetail from "../pages/offices/details";
 import OfficeCreate from "../pages/offices/create";
 // Customers pages
-import Customers from '../pages/contacts/customers';
+import Customers from '../pages/contacts/customers/CustomersIndex';
 import CustomerForm from '../pages/contacts/customers/CustomerForm';
 import CustomerDetail from '../pages/contacts/customers/CustomerDetail';
 

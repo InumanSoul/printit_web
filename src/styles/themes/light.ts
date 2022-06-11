@@ -12,7 +12,7 @@ export default {
     text: '#151722',
     textInvert: '#F5F5F5',
     cardbg: '#FFFFFF',
-    borderColor: '#EBEBEB',
+    borderColor: '#BFBFBF',
     shadows: '#0000001C',
     gray100: '#FAFAFA',
     gray200: '#E6E6E6',
