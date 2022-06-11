@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Button, Container, FormGroup, Input, Label, OutlineButton } from "../../../styles/global";
+import { Button, Card, Container, FormGroup, Input, Label, OutlineButton } from "../../../styles/global";
 import Layout from "../../../components/Layout";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -79,59 +79,61 @@ function CustomerForm(props: any) {
         </Link>
 
         <div className="row">
-          <div className="col-md-5 col-md-offset-3">
-            <h2 style={{marginBottom: 20}}>Detalles</h2>
-            { hasMessage.length > 0 && <h4>{hasMessage}</h4> }
-            <form id="createOfficeForm" className="mb4">
-              <FormGroup>
-                <Label htmlFor="nombre">Nombre</Label>
-                <Input
-                  id="nombre"
-                  type="text"
-                  value={nombre}
-                  onChange={(e) => setNombre(e.target.value)}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Label htmlFor="ruc">RUC</Label>
-                <Input
-                  id="ruc"
-                  type="text"
-                  value={ruc}
-                  onChange={(e) => setRUC(e.target.value)}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Label htmlFor="direccion">Dirección</Label>
-                <Input
-                  id="direccion"
-                  type="text"
-                  value={direccion}
-                  onChange={(e) => setDireccion(e.target.value)}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Label htmlFor="telefono">Telefono</Label>
-                <Input
-                  id="telefono"
-                  type="text"
-                  value={telefono}
-                  onChange={(e) => setTelefono(e.target.value)}
-                />
-              </FormGroup>
-              <Button
-                onClick={(e) => {
-                  e.preventDefault()
-                  UpdateCustomer()
-                }}
-              >
-                {isLoading ? (
-                  <FontAwesomeIcon icon={faCircleNotch as IconDefinition} spin={true} />
-                ) : (
-                  'Actualizar'
-                )}
-              </Button>
-            </form>
+          <div className="col-md-8 col-md-offset-2 col-xs-12">
+            <h2 style={{marginTop: 20,marginBottom: 20}}>Detalles del cliente</h2>
+            <Card style={{padding: 25}}>
+              { hasMessage.length > 0 && <h4>{hasMessage}</h4> }
+              <form id="createOfficeForm" className="mb4">
+                <FormGroup>
+                  <Label htmlFor="nombre">Nombre</Label>
+                  <Input
+                    id="nombre"
+                    type="text"
+                    value={nombre}
+                    onChange={(e) => setNombre(e.target.value)}
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label htmlFor="ruc">RUC</Label>
+                  <Input
+                    id="ruc"
+                    type="text"
+                    value={ruc}
+                    onChange={(e) => setRUC(e.target.value)}
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label htmlFor="direccion">Dirección</Label>
+                  <Input
+                    id="direccion"
+                    type="text"
+                    value={direccion}
+                    onChange={(e) => setDireccion(e.target.value)}
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label htmlFor="telefono">Telefono</Label>
+                  <Input
+                    id="telefono"
+                    type="text"
+                    value={telefono}
+                    onChange={(e) => setTelefono(e.target.value)}
+                  />
+                </FormGroup>
+                <Button
+                  onClick={(e) => {
+                    e.preventDefault()
+                    UpdateCustomer()
+                  }}
+                >
+                  {isLoading ? (
+                    <FontAwesomeIcon icon={faCircleNotch as IconDefinition} spin={true} />
+                  ) : (
+                    'Actualizar'
+                  )}
+                </Button>
+              </form>
+            </Card>
           </div>
         </div>
       </Container>

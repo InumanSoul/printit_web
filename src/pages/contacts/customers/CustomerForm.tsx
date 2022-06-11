@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Button, Container, FormGroup, Input, Label, OutlineButton } from "../../../styles/global";
+import { Button, Card, Container, FormGroup, Input, Label, OutlineButton } from "../../../styles/global";
 import Layout from "../../../components/Layout";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -60,56 +60,58 @@ function CustomerForm(props: any) {
         </Link>
 
         <div className="row">
-          <div className="col-md-5 col-md-offset-3">
+          <div className="col-md-8 col-md-offset-2 col-xs-12">
             <h2>Nuevo Cliente</h2>
             { hasMessage.length > 0 && <h4>{hasMessage}</h4> }
-            <form id="createOfficeForm" className="mb4">
-              <FormGroup>
-                <Label htmlFor="nombre">Nombre</Label>
-                <Input
-                  id="nombre"
-                  type="text"
-                  onChange={(e) => setNombre(e.target.value)}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Label htmlFor="ruc">RUC</Label>
-                <Input
-                  id="ruc"
-                  type="text"
-                  onChange={(e) => setRUC(e.target.value)}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Label htmlFor="direccion">Dirección</Label>
-                <Input
-                  id="direccion"
-                  type="direccion"
-                  onChange={(e) => setDireccion(e.target.value)}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Label htmlFor="telefono">Telefono</Label>
-                <Input
-                  id="telefono"
-                  type="telefono"
-                  onChange={(e) => setTelefono(e.target.value)}
-                />
-              </FormGroup>
-              <Button
-                onClick={(e) => {
-                  e.preventDefault()
-                  CreateCustomer()
-                }}
-                disabled={isButtonDisabled}
-              >
-                {isLoading ? (
-                  <FontAwesomeIcon icon={faCircleNotch as IconDefinition} spin={true} />
-                ) : (
-                  'Registrar Cliente'
-                )}
-              </Button>
-            </form>
+            <Card style={{padding: 25}}>
+              <form id="createOfficeForm" className="mb4">
+                <FormGroup>
+                  <Label htmlFor="nombre">Nombre</Label>
+                  <Input
+                    id="nombre"
+                    type="text"
+                    onChange={(e) => setNombre(e.target.value)}
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label htmlFor="ruc">RUC</Label>
+                  <Input
+                    id="ruc"
+                    type="text"
+                    onChange={(e) => setRUC(e.target.value)}
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label htmlFor="direccion">Dirección</Label>
+                  <Input
+                    id="direccion"
+                    type="direccion"
+                    onChange={(e) => setDireccion(e.target.value)}
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label htmlFor="telefono">Telefono</Label>
+                  <Input
+                    id="telefono"
+                    type="telefono"
+                    onChange={(e) => setTelefono(e.target.value)}
+                  />
+                </FormGroup>
+                <Button
+                  onClick={(e) => {
+                    e.preventDefault()
+                    CreateCustomer()
+                  }}
+                  disabled={isButtonDisabled}
+                >
+                  {isLoading ? (
+                    <FontAwesomeIcon icon={faCircleNotch as IconDefinition} spin={true} />
+                  ) : (
+                    'Registrar Cliente'
+                  )}
+                </Button>
+              </form>
+            </Card>
           </div>
         </div>
       </Container>
