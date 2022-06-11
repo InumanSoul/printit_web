@@ -4,7 +4,8 @@ import { Link, useHistory } from 'react-router-dom';
 import Switch from 'react-switch';
 import { ThemeContext } from 'styled-components';
 import { shade } from 'polished';
-import { Container, InputSearch, SearchBox } from './styles';
+import { Container} from './styles';
+import SearchBar from "../SearchBar/SearchBarIndex";
 import {
   SuccessButton,
   Dropdown,
@@ -12,9 +13,6 @@ import {
   DropdownMenuRight,
 } from "../../styles/global";
 import Avatar from 'react-avatar';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/pro-regular-svg-icons";
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 interface Props {
     toggleTheme(): void;
@@ -23,8 +21,7 @@ interface Props {
 const Header: React.FC<Props> = ({ toggleTheme }) => {
   const { colors, title } = useContext(ThemeContext);
   const user = JSON.parse(localStorage.getItem('user') || "{}");
-
-  const history = useHistory()
+  const history = useHistory();
   const token = localStorage.getItem('app_token')
   const headers = {
     'Content-Type': 'application/json',
@@ -49,10 +46,7 @@ const Header: React.FC<Props> = ({ toggleTheme }) => {
 
   return (
     <Container>
-      <SearchBox>
-        <FontAwesomeIcon icon={faSearch as IconProp} />
-        <InputSearch type="text" placeholder="Buscar" />
-      </SearchBox>
+      <SearchBar />
       <div className="d-flex align-items-center">
         <Switch
           onChange={toggleTheme}
@@ -70,7 +64,7 @@ const Header: React.FC<Props> = ({ toggleTheme }) => {
 
         <Dropdown>
           <DropdownHeader>
-            <Avatar name={user.nombre} size="35" round={true} textSizeRatio={2} className="ml2"/>
+            <Avatar name={user.nombre} size="35" round={true} textSizeRatio={2} className="ml2" maxInitials={2}/>
           </DropdownHeader>
           <DropdownMenuRight>
             <Link to="/account" className="dropdown-item">Mi perfil</Link>

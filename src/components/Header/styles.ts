@@ -38,35 +38,3 @@ export const Title = styled.h4`
   text-transform: capitalize;
   font-weight: 600;
 `;
-
-export const SearchBox = styled.div`
-  border: 1px solid ${(props) => props.theme.colors.borderColor};
-  border-radius: 1.2rem;
-  background: ${(props) => props.theme.colors.cardbg};
-  padding-left: 0.75rem;
-  display: none;
-  align-items: center;
-  
-  @media (min-width: 768px){
-    display: flex;
-  }
-`;
-
-export const InputSearch = styled.input`
-  border: none;
-  border-radius: 0 1.2rem 1.2rem 0;
-  padding: 0.375rem 0.75rem;
-  display: inline-block;
-  width: 250px;
-  height: 35px;
-  color: ${(props) => props.theme.colors.text};
-  background: ${(props) => props.theme.colors.cardbg};
-  font-size: 1rem;
-  transition: width .3s ease-in-out;
-
-  :active,
-  :focus {
-    width: 330px;
-    outline: 0;
-  }
-`;
