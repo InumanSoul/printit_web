@@ -18,7 +18,7 @@ function Account() {
     <Layout>
       <Container>
         <div className="row">
-          <div className="col-lg-5 col-lg-offset-3 col-md-8 col-md-offset-2">
+          <div className="col-md-8 col-md-offset-2 col-xs-12">
             <div className="d-flex justify-content-between">
               <h2>Mi Perfil</h2>
               <div className="actions">
@@ -37,10 +37,10 @@ function Account() {
               <Divider style={{marginBottom: 20, marginTop: 10,}} />
               <FormGroup>
                 <div className="row align-items-center">
-                  <div className="col-md-3">
+                  <div className="col-xs-3">
                     <Label>Nombre</Label>
                   </div>
-                  <div className="col-md-9">
+                  <div className="col-xs-9">
                     <Input
                       id="name"
                       type="text"
@@ -53,10 +53,10 @@ function Account() {
 
               <FormGroup>
                 <div className="row align-items-center">
-                  <div className="col-md-3">
+                  <div className="col-xs-3">
                     <Label>Fecha de nacimiento</Label>
                   </div>
-                  <div className="col-md-9">
+                  <div className="col-xs-9">
                     <Input
                       id="name"
                       type="text"
@@ -69,11 +69,11 @@ function Account() {
               
               <FormGroup>
                 <div className="row align-items-center">
-                  <div className="col-md-3">
+                  <div className="col-xs-3">
                     <Label>Avatar</Label>
                   </div>
-                  <div className="col-md-9 d-flex align-items-center">
-                    <Avatar name={user.nombre} size="75" round={true} textSizeRatio={2} className="mb4"/>
+                  <div className="col-xs-9 d-flex align-items-center">
+                    <Avatar name={user.nombre} size="75" round={true} textSizeRatio={2} className="mb4" maxInitials={2}/>
                     <small>Cargar foto</small>
                   </div>
                 </div>
@@ -81,10 +81,10 @@ function Account() {
 
               <FormGroup>
                 <div className="row align-items-center">
-                  <div className="col-md-3">
+                  <div className="col-xs-3">
                     <Label>Cargo</Label>
                   </div>
-                  <div className="col-md-9">
+                  <div className="col-xs-9">
                     <Input
                       id="name"
                       type="text"
@@ -97,10 +97,10 @@ function Account() {
 
               <FormGroup>
                 <div className="row align-items-center">
-                  <div className="col-md-3">
+                  <div className="col-xs-3">
                     <Label>Email</Label>
                   </div>
-                  <div className="col-md-9">
+                  <div className="col-xs-9">
                     <Input
                       id="email"
                       type="email"
@@ -118,10 +118,10 @@ function Account() {
               <Divider style={{marginBottom: 20, marginTop: 10,}} />
               <FormGroup>
                 <div className="row align-items-center">
-                  <div className="col-md-3">
+                  <div className="col-xs-3">
                     <Label>Tipo de pago</Label>
                   </div>
-                  <div className="col-md-9">
+                  <div className="col-xs-9">
                     <Input
                       id="suscripcion"
                       type="text"
@@ -133,10 +133,10 @@ function Account() {
               </FormGroup>
               <FormGroup>
                 <div className="row align-items-center">
-                  <div className="col-md-3">
+                  <div className="col-xs-3">
                     <Label>Plan</Label>
                   </div>
-                  <div className="col-md-9">
+                  <div className="col-xs-9">
                       <Input
                       id="plan"
                       type="text"
@@ -153,10 +153,10 @@ function Account() {
               <Divider style={{marginBottom: 20, marginTop: 10,}} />
               <FormGroup>
                 <div className="row align-items-center">
-                  <div className="col-md-3">
+                  <div className="col-xs-3">
                     <Label>Nombre</Label>
                   </div>
-                  <div className="col-md-9">
+                  <div className="col-xs-9">
                     <div className="d-flex justify-content-between">
                       <p>{user.empresa.nombre}</p>
                       <Link to={'/business'}>Ver datos</Link>
