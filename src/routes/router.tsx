@@ -10,7 +10,6 @@ import Login from "../pages/auth/login";
 import Register from "../pages/auth/register";
 import Account from "../pages/account";
 // System pages
-import Items from "../pages/items";
 import Reports from "../pages/reports";
 import Invoices from "../pages/invoices";
 import Expenses from '../pages/expenses';
@@ -26,6 +25,9 @@ import OfficeCreate from "../pages/offices/create";
 import Customers from '../pages/contacts/customers/CustomersIndex';
 import CustomerForm from '../pages/contacts/customers/CustomerForm';
 import CustomerDetail from '../pages/contacts/customers/CustomerDetail';
+// Items Pages
+import Items from "../pages/items";
+import ItemsDetail from "../pages/items/ItemsDetail";
 
 function Routes(){
   return(
@@ -41,6 +43,7 @@ function Routes(){
       <Route exact path="/expenses" component={Expenses} />
       <Route exact path="/reports" component={Reports} />
       <Route exact path="/items" component={Items} />
+      <Route exact path="/items/:id" component={ItemsDetail} />
       <Route exact path="/business" component={Business} />
       <Route exact path="/settings" component={Settings} />
       <Route exact path="/outbuilding" component={Outbuilding} />
