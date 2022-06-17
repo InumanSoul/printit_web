@@ -22,8 +22,8 @@ function Account() {
             <div className="d-flex justify-content-between">
               <h2>Mi Perfil</h2>
               <div className="actions">
-                {editMode == true && <OutlineButton onClick={(e) => setEditMode(false)}>Editar</OutlineButton>}
-                {editMode == false && (
+                {editMode === true && <OutlineButton onClick={(e) => setEditMode(false)}>Editar</OutlineButton>}
+                {editMode === false && (
                   <>
                     <OutlineButton onClick={(e) => setEditMode(true)}>Cancelar</OutlineButton>
                     <Button onClick={(e) => UpdateProfile()}>Guardar Cambios</Button>
