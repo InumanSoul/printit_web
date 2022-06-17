@@ -42,7 +42,7 @@ export default function SearchBar() {
         <FontAwesomeIcon icon={faSearch as IconProp} />
         <InputSearch type="text" placeholder="Buscar" value={searchText} onChange={(e) => setSearchText(e.target.value)} onKeyPress={(e) => handleSearch(e.key)}/>
       </SearchBox>
-      <SearchResults className={(showResults == false ? '' : 'active')}>
+      <SearchResults className={(showResults === false ? '' : 'active')}>
         <FontAwesomeIcon icon={faTimes as IconProp} onClick={(e) => setShowResults(false)}/>
           { Object.keys(apidata.data).length === 0 ? <p>No se encuentran resultados...</p> :
             apidata.data.map((result) => {
