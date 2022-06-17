@@ -1284,3 +1284,9 @@ export const Badge = styled.div`
 	font-weight: 600;
 	border: 1px solid ${(props) => props.theme.colors.secondary};
 `;
+
+export const BadgeSuccess = styled(Badge)`
+	color: ${(props) => props.theme.colors.textInvert};
+	background-color: ${(props) => props.theme.colors.success};
+	border: 1px solid transparent;
+`;
