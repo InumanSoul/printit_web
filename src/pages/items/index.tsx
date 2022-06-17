@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import { Container, Badge } from "../../styles/global";
 import Layout from "../../components/Layout";
@@ -8,6 +7,7 @@ import { ProductPhoto, ProductInfo } from './styles'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faImagePolaroid } from '@fortawesome/pro-regular-svg-icons';
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { getItems } from "../../API";
 
 interface JsonObject {
   data: Array<any>;
@@ -17,29 +17,14 @@ function Items() {
   const [apidata, setApidata] = useState<JsonObject>({ data: [] });
   const [isLoading, setIsLoading] = useState(false);
 
+  const fetchData = async () => {
+    setIsLoading(true);
+    let res = await getItems();
+    setApidata(res);
+    setIsLoading(false);
+  };
+
   useEffect(() => {
-    //Get token from local and configure headers
-    const token = localStorage.getItem("app_token");
-    const user = JSON.parse(localStorage.getItem("user") || "{}");
-
-    const headers = {
-      "Content-Type": "application/json",
-      "Authorization": "Bearer " + token,
-      "Empresa": user.empresa_id,
-    };
-
-    const fetchData = async () => {
-        setIsLoading(true);
-
-        const result = await axios
-        .get(
-            "http://localhost:8000/api/items", {
-                headers: headers,
-            });
-
-            setApidata(result.data);
-            setIsLoading(false);
-    };
     fetchData();
   }, []);
 
