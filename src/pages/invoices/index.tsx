@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Badge, BadgeSuccess, Card, Container, OutlineButton } from "../../styles/global";
 import Layout from "../../components/Layout";
 import { getSales } from "../../API";
+import { numberFormatter } from "../../config/utils";
 
 interface Sales{
   data: Array<any>;
@@ -31,17 +32,6 @@ function Invoices() {
   useEffect(() => {
     fetchData('');
   }, []);
-
-  // function formatDate(date: string) {
-  //   let fullDate = date.split(" ");
-  //   let dateArray = fullDate;
-  //   let cleanDate = dateArray[0] + ' a las ' + dateArray[1].slice(0, 5);
-  //   return cleanDate;
-  // }
-
-  function numberFormatter(num: string | number) {
-    return num.toString().replace(/\B(?<!\.\d)(?=(\d{3})+(?!\d))/g, ".");
-  }
   
     return(
       <Layout>
