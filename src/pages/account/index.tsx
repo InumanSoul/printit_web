@@ -8,10 +8,20 @@ import { Link } from "react-router-dom";
 function Account() {
   const user = JSON.parse(localStorage.getItem('user') || "{}");
   const [editMode, setEditMode] = useState(true);
+  const [avatar, setAvatar] = useState<string>('');
 
   const UpdateProfile = () => {
     window.alert('Perfil actualizado');
     setEditMode(true);
+  }
+
+  const handleAvatar = (e: any) => {
+    const file = e.files[0];
+    const reader = new FileReader();
+    const fileUrl = reader.readAsDataURL(file);
+      reader.onloadend = function (e){
+        setAvatar(reader.result as string);
+      }
   }
 
   return (
@@ -73,8 +83,13 @@ function Account() {
                     <Label>Avatar</Label>
                   </div>
                   <div className="col-xs-9 d-flex align-items-center">
-                    <Avatar name={user.nombre} size="75" round={true} textSizeRatio={2} className="mb4" maxInitials={2}/>
-                    <small>Cargar foto</small>
+                    {!avatar && 
+                      <>
+                        <Avatar name={user.nombre} size="75" round={true} textSizeRatio={2} className="mb4" maxInitials={2}/>
+                        <input type="file" name="avatar" id="avatar" accept="image/png, image/jpeg" onChange={(e) => handleAvatar(e.target)}/>
+                      </>
+                    }
+                    {avatar && <Avatar size="75" round={true} src={avatar} onClick={(e) => setAvatar('')}/>}
                   </div>
                 </div>
               </FormGroup>
