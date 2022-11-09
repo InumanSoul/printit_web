@@ -114,6 +114,10 @@ export default createGlobalStyle`
 			margin-bottom: 1.2rem;
 	}
 
+	.mb5{
+		margin-bottom: 1.5rem;
+	}
+
 	.mv4{
 			margin-top: 1.2rem;
 			margin-bottom: 1.2rem;
@@ -1262,7 +1266,6 @@ export const Dropdown = styled.div`
   &:hover ${DropdownMenu} { 
 		display: block;
 	}
-
 `;
 
 export const DropdownHeader = styled.div`
