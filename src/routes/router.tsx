@@ -33,11 +33,11 @@ function Routes(){
   return(
     <Router>
       <Route exact path="/" component={Home} />
+      <Route path="/login" component={Login} />
+      <Route path="/register" component={Register} />
       <Route exact path="/features" component={Features} />
       <Route exact path="/help" component={Help} />
       <Route exact path="/pricing" component={Pricing} />
-      <Route path="/login" component={Login} />
-      <Route path="/register" component={Register} />
       <Route path="/account" component={Account} />
       <Route exact path="/invoices" component={Invoices} />
       <Route exact path="/expenses" component={Expenses} />

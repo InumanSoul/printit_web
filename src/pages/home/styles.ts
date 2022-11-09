@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+interface PricingProps{
+  plan: string;
+}
+
 export const Container = styled.div`
   width: 100%;
   padding: 40px 15px;
@@ -19,8 +23,17 @@ export const Container = styled.div`
   }
 `;
 
+export const HeroImage = styled.img`
+  width: 100%;
+  margin-top: 2rem;
+`;
+
 export const DisplayText = styled.h1`
-  font-size: 3rem;
+  font-size: 3.5rem;
+`;
+
+export const Subtitle = styled.p`
+  font-size: 1.5rem;
 `;
 
 export const HeroSection = styled.div`
@@ -40,11 +53,15 @@ export const PlansSect = styled.div`
   padding: 130px 0;
 `;
 
-export const Footer = styled.footer`
-  padding: 50px 40px 30px;
+export const PricingCardsContainer = styled.div`
   display: grid;
-  grid-template-columns: 3fr 1fr 1fr 1fr;
-  grid-template-rows: 2fr 1fr;
-  background: ${props => props.theme.colors.darkBackground};
-  color: ${props => props.theme.colors.textInvert};
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+  margin-top: 2rem;
+`;
+
+export const PricingCard = styled.div<PricingProps>`
+  padding: 1.25rem;
+  background: ${props => props.plan === 'free' ? props.theme.colors.cardbg : props.theme.colors.primary};
+  border-radius: 0.5rem;
 `;

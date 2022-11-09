@@ -24,17 +24,18 @@ function OfficeDetail(props: any) {
     Authorization: "Bearer " + token,
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
+  const fetchData = async () => {
+    setIsLoading(true);
 
-      const result = await axios.get("http://localhost:8000/api/sucursales/"+sucId.id, {
-        headers: headers,
-      });
-      const formatResult = { data: result.data };
-      setApidata(formatResult);
-      setIsLoading(false);
-    };
+    const result = await axios.get("http://localhost:8000/api/sucursales/"+sucId.id, {
+      headers: headers,
+    });
+    const formatResult = { data: result.data };
+    setApidata(formatResult);
+    setIsLoading(false);
+  };
+
+  useEffect(() => {
     fetchData();
   }, []);
 

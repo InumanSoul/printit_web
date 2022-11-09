@@ -6,9 +6,11 @@ class MiddlewareAuth extends Component {
     const app_token = localStorage.getItem("app_token");
 
     return (
-      <React.Fragment>
-        {app_token ? "" : <Redirect to="login" />}
-      </React.Fragment>
+      <>
+        { 
+          app_token ? "" : <Redirect to="login" /> 
+        }
+      </>
     );
   }
 }

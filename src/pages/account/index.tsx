@@ -4,15 +4,44 @@ import Layout from "../../components/Layout";
 import Avatar from 'react-avatar'
 import { Divider } from "./styles";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { url, apiHeaders } from "../../config";
+const token = localStorage.getItem("app_token");
 
 function Account() {
   const user = JSON.parse(localStorage.getItem('user') || "{}");
   const [editMode, setEditMode] = useState(true);
   const [avatar, setAvatar] = useState<string>('');
 
-  const UpdateProfile = () => {
-    window.alert('Perfil actualizado');
-    setEditMode(true);
+  const UpdateProfile = async() => {
+    // window.alert('Perfil actualizado');
+    const headers = {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer " + token,
+      "Empresa": user.empresa_id,
+    }
+    const data = {
+      nombre: "Anderson Farina",
+      email: "inumansoul@gmail.com",
+      avatar: avatar,
+      cargo: "propietario",
+    }
+    console.log(data);
+    
+    const res = await axios
+    .put(url.apiUrl + 'account/1', data, {
+      headers: headers,
+    })
+    .then((res) => {
+      console.log(res);
+      // localStorage.setItem("user", JSON.stringify(''));
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+    
+    // setEditMode(true);
+
   }
 
   const handleAvatar = (e: any) => {
@@ -35,7 +64,7 @@ function Account() {
                 {editMode === true && <OutlineButton onClick={(e) => setEditMode(false)}>Editar</OutlineButton>}
                 {editMode === false && (
                   <>
-                    <OutlineButton onClick={(e) => setEditMode(true)}>Cancelar</OutlineButton>
+                    <OutlineButton className="mr2" onClick={(e) => setEditMode(true)}>Cancelar</OutlineButton>
                     <Button onClick={(e) => UpdateProfile()}>Guardar Cambios</Button>
                   </>
                 )}
@@ -86,10 +115,17 @@ function Account() {
                     {!avatar && 
                       <>
                         <Avatar name={user.nombre} size="75" round={true} textSizeRatio={2} className="mb4" maxInitials={2}/>
-                        <input type="file" name="avatar" id="avatar" accept="image/png, image/jpeg" onChange={(e) => handleAvatar(e.target)}/>
+                        <input 
+                          type="file" 
+                          name="avatar" 
+                          id="avatar" 
+                          accept="image/png, image/jpeg"
+                          placeholder="Elegi una foto"
+                          onChange={(e) => handleAvatar(e.target)}
+                        />
                       </>
                     }
-                    {avatar && <Avatar size="75" round={true} src={avatar} onClick={(e) => setAvatar('')}/>}
+                    {avatar ? <Avatar size="75" round={true} src={avatar} onClick={(e) => setAvatar('')}/> : null}
                   </div>
                 </div>
               </FormGroup>

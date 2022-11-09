@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { ThemeProvider, DefaultTheme } from 'styled-components';
 import usePersistedState from '../../utils/usePersistedState';
-import Middleware from '../../components/Middleware/auth';
 
 import light from '../../styles/themes/light';
 import dark from '../../styles/themes/dark';
@@ -33,7 +32,6 @@ const Layout: React.FC<Props> = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <GlobablStyle />
-      <Middleware />
         <Header/>
         {children}
     </ThemeProvider>
