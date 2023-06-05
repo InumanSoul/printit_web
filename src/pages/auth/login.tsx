@@ -11,17 +11,21 @@ import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [isButtonDisabled, setIsBbuttonDisabled] = useState(true);
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const history = useHistory();
 
   useEffect(() => {
     if (username.trim() && password.trim()){
-      setIsBbuttonDisabled(false);
+      setIsButtonDisabled(false);
     } else{
-      setIsBbuttonDisabled(true);
+      setIsButtonDisabled(true);
     }
   }, [username, password]);
+
+  const errorReturn = () => {
+
+  }
 
   const handleLogin = () => {
     const formData = new FormData();
@@ -91,7 +95,6 @@ const Login = () => {
             >
               {isLoading ? (
                 <FontAwesomeIcon icon={faCircleNotch as IconDefinition} spin={true} />
-                // 'Iniciando...'
               ) : (
                 'Iniciar sesión'
               )}
